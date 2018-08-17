@@ -1,0 +1,15 @@
+knpu_oauth2_client:
+    clients:
+        # the key "oauth_main" can be anything, it
+        # will create a service: "knpu.oauth2.client.oauth_main"
+        oauth_main:
+            # this will be one of the supported types
+            type: generic
+            provider_class: App\Authentication\Provider
+            client_id: '%env(resolve:OAUTH_APP_ID)%'
+            client_secret: '%env(resolve:OAUTH_APP_SECRET)%'
+            # the route that you're redirected to after
+            # see the controller example below
+            redirect_route: connect_api_check
+            # route parameters to pass to your route, if needed
+            redirect_params: {}
